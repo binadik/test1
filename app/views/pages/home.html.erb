@@ -1,4 +1,13 @@
 <div class="jumbotron">
 	<h1>Welcome to Eric platfomr</h1>
-	<p>Enter here <%= link_to "Sign up","#", class: "btn btn-primary btn-lg" %>.</p>
+	
+	<% if user_signed_in? %>
+		# do something
+		<% else %>
+	<p>
+	Log in <%= link_to "log in" ,new_user_session_path, class: "btn btn-primary btn-lg" %>
+	Enter here <%= link_to "Sign up",new_user_registration_path, class: "btn btn-primary btn-lg" %>
+	</p>
+
+	<% end %>
 </div>
