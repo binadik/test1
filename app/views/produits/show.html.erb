@@ -10,6 +10,7 @@
   <%= @produit.description %>
 </p>
 
-
-<%= link_to 'Edit', edit_produit_path(@produit) %> |
+<% if @produit.user == current_user %>
+<%= link_to 'Edit', edit_produit_path(@produit) %> 
+<% end %>
 <%= link_to 'Back', produits_path %>

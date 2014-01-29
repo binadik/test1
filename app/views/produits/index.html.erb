@@ -5,6 +5,7 @@
     <tr>
       <th>Nom</th>
       <th>Description</th>
+      <th>User </th>
       <th></th>
       <th></th>
       <th></th>
@@ -16,14 +17,18 @@
       <tr>
         <td><%= produit.nom %></td>
         <td><%= produit.description %></td>
+        <td><%= produit.user.email if produit.user %></td>
         <td><%= link_to 'Show', produit %></td>
+        <% if produit.user == current_user %> 
         <td><%= link_to 'Edit', edit_produit_path(produit) %></td>
         <td><%= link_to 'Destroy', produit, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <% end %>
       </tr>
     <% end %>
   </tbody>
 </table>
 
 <br>
-
+<% if user_signed_in? %>
 <%= link_to 'New Produit', new_produit_path %>
+<% end %>
